@@ -14,6 +14,7 @@
         <form action="{{ route('show_product', $product) }}" method="get">
             <button type="submit">Show Detail</button>
         </form>
+        <p>{{ url('storage/' . $product->image) }}</p>
     @endforeach
 </body>
 </html>
