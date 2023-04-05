@@ -10,6 +10,7 @@
     @foreach ($products as $product)
         <p>Name : {{ $product->name }}</p>
         <img src="{{ url('storage/' . $product->image) }}" alt="" height="100px">
+        <p>{{ url('storage/' . $product->image) }}</p>
         <form action="{{ route('show_product', $product) }}" method="get">
             <button type="submit">Show Detail</button>
         </form>
