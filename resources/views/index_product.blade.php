@@ -16,7 +16,7 @@
         <form action="{{ route('delete_product', $product) }}" method="post">
             @method('delete')
             @csrf
-            <button type="sbumit">Delete product</button>
+            <button type="submit">Delete product</button>
         </form>
     @endforeach
 </body>
