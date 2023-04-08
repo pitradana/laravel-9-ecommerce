@@ -12,7 +12,7 @@ class CartController extends Controller
 {
     public function add_to_cart(Product $product, Request $request)
     {
-        $product->validate([
+        $request->validate([
             'amount'=>'required|gte:1'
         ]);
 
