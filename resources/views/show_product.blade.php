@@ -13,5 +13,11 @@
     <p>Price: {{ $product->price }}</p>
     <p>Stock: {{ $product->stock }}</p>
     <img src="{{ url('storage/' . $product->image) }}" alt="" height="100px">
+
+    <form action="{{route('add_to_cart', $product)}}" method="post">
+        @csrf
+        <input type="number" name="amount" value=1>
+        <button type="submit">Add to cart</button>
+    </form>
 </body>
 </html>

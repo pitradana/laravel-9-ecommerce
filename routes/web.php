@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -27,3 +28,4 @@ Route::post('/product/store', [ProductController::class, 'store_product'])->name
 Route::get('/product', [ProductController::class, 'index_product'])->name('index_product');
 Route::get('/product/{product}', [ProductController::class, 'show_product'])->name('show_product');
 
+Route::post('/cart/{product}', [CartController::class, 'add_to_cart'])->name('add_to_cart');
