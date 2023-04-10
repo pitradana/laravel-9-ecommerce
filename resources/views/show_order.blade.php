@@ -13,5 +13,16 @@
         <p>Product: {{ $transaction->product->name }}</p>
         <p>Amount: {{ $transaction->amount }}</p>
     @endforeach
+
+    @if ($order->id_paid == false && $order->payment_receipt == null)
+        <form action="{{ route('submit_payment_receipt', $order) }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <label for="payment_receipt">Upload your payment receipt</label>
+            <br>
+            <input type="file" name="payment_receipt" id="payment_receipt">
+            <br>
+            <button type="submit">Submit payment</button>
+        </form>
+    @endif
 </body>
 </html>
