@@ -72,4 +72,13 @@ class OrderController extends Controller
 
         return Redirect::back();
     }
+
+    public function confirm_payment(Order $order)
+    {
+        $order->update([
+            'is_padi' => true
+        ]);
+
+        return Redirect::back();
+    }
 }

@@ -11,6 +11,17 @@
         <p>ID: {{ $order->id }}</p>
         <p>User: {{ $order->user->name }}</p>
         <p>{{ $order->created_at }}</p>
+        <p>
+            @if ($order->is_paid == true)
+                Paid
+            @else
+                Unpaid
+            @endif
+        </p>
+        <form action="{{ route('confirm_payment', $order) }}" method="post">
+            @csrf
+            <button type="submit">Confirm</button>
+        </form>
     @endforeach
 </body>
 </html>
