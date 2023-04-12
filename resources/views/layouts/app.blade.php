@@ -56,15 +56,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a href="{{ route('show_cart') }}" class="dropdown-list">
+                                    <a href="{{ route('show_cart') }}" class="dropdown-item">
                                         Cart
                                     </a>
 
-                                    <a href="{{ route('index_order')}}" class="dropdown-menu">
+                                    <a href="{{ route('index_order')}}" class="dropdown-item">
                                         Order
                                     </a>
 
-                                    <a href="{{ route('show_profile')}}" class="dropdown-menu">
+                                    <a href="{{ route('show_profile')}}" class="dropdown-item">
                                         Profile
                                     </a>
                                     
