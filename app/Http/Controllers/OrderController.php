@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function checkout()
     {
         $user_id = Auth::id();
@@ -44,7 +49,7 @@ class OrderController extends Controller
             $cart->delete();
         }
 
-        return Redirect::back();
+        return Redirect::route('show_order', $order);
     }
 
     public function index_order()
