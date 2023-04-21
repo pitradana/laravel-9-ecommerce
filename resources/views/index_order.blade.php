@@ -12,26 +12,28 @@
                             <div class="card mb-2" style="width: 30rem">
                                 <div class="card-body">
                                     <a href="{{ route('show_order', $order) }}">
-                                        <h6 class="card-subtitle mb-2 text-muted">By {{ $order->user->name }}</h6>
+                                        <h5 class="card-title">Order ID {{ $order->id }}</h5>
+                                    </a>
+                                    <h6 class="card-subtitle mb-2 text-muted">By {{ $order->user->name }}</h6>
 
-                                        @if ($order->is_paid == true)
-                                            <p class="card-test">Paid</p>
-                                        @else
-                                            <p class="card-text">Unpaid</p>
-                                            @if ($order->payment_receipt)
-                                                <div class="d-flex flew-row justify-content-around">
-                                                    <a href="{{ url('storage/' . $order->payment_receipt) }}" class="btn btn-primary">
-                                                        Show Payment receipt
-                                                    </a>
-                                                    
+                                    @if ($order->is_paid == true)
+                                        <p class="card-test">Paid</p>
+                                    @else
+                                        <p class="card-text">Unpaid</p>
+                                        @if ($order->payment_receipt)
+                                            <div class="d-flex flew-row justify-content-around">
+                                                <a href="{{ url('storage/' . $order->payment_receipt) }}" class="btn btn-primary">
+                                                    Show Payment receipt
+                                                </a>
+                                                @if (Auth::user()->is_admin)
                                                     <form action="{{ route('confirm_payment', $order) }}" method="post">
                                                         @csrf
                                                         <button type="submit" class="btn btn-success">Confirm</button>
                                                     </form>
-                                                </div>
-                                            @endif
+                                                @endif
+                                            </div>
                                         @endif
-                                    </a>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach

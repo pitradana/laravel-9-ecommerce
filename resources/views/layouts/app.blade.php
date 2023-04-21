@@ -56,18 +56,22 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a href="{{ route('show_cart') }}" class="dropdown-item">
-                                        Cart
-                                    </a>
-
+                                    @if (Auth::user()->is_admin)
+                                        <a href="{{ route('create_product') }}" class="dropdown-item">
+                                            Create product
+                                        </a>
+                                    @else
+                                        <a href="{{ route('show_cart') }}" class="dropdown-item">
+                                            Cart
+                                        </a>
+                                    @endif
+                                    
                                     <a href="{{ route('index_order')}}" class="dropdown-item">
                                         Order
                                     </a>
-
                                     <a href="{{ route('show_profile')}}" class="dropdown-item">
                                         Profile
                                     </a>
-                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
